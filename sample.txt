@@ -1,0 +1,122 @@
+JS BASIC -- 
+
+variable declaration
+data types
+control structure logic flow
+function , arrow function
+array methods - map, filter, reduce
+OOPS BASIC
+parse and stringify json
+request params = req- params,query,body.(headers too)
+-------------------------------------------------------------------
+## Learning here----------------
+Libraries are the same thing as modules in regard to Node.js
+
+Core Node.js modules form a minimal library. They contain the minimal functionality 
+needed to develop Node.js applications.
+core modules are http, path, fs, os, util, url, and querystring
+
+Local modules are the next type of Node.js module. Local modules are the modules 
+written by you and the development team as part of creating your Node.js application.
+
+Third-party modules are available online and have been created by the back-end Node.js 
+community. These libraries are available to use as stated per their licenses.
+
+Modules like path, os, and fs are called built-in modules 
+(also known as core modules) in Node.js.
+These built-in modules are not dependencies, because they don’t need to be 
+installed—they are part of Node.js itself.
+-----------------------------------------
+Core Node.js modules form a minimal library. 
+They contain the minimal functionality needed to develop Node.js applications.
+
+Local modules are the next type of Node.js module. 
+Local modules are the modules written by you and the development team as part of creating your Node.js application.
+
+Third-party modules are available online and have been created by the back-end Node.js community. 
+These libraries are available to use as stated per their licenses.
+
+HTTP MDOULE -----------------
+Creates an instance of a server using the http module.  let http = require('http');
+This code makes use of the http.createServer() method to create the server instance.
+http.createServer(function (req, res))
+
+FS MDOULE -------------------
+fs module is used to interact with a file system.
+The fs module can also be used for input and output, known as I/O. 
+The fs module methods can be used to retrieve information from or write data to an external file.
+
+OD MODULE -------------------
+The OS module provides methods to retrieve information from the operating system that 
+the application is running on and interact with it.
+
+URL MODULE ---------------------
+The URL module is used to divide up a web address into readable parts.
+
+-----------------------------------------------------------------
+Package, Package managers, Dependencies, NPM - CLI, js package, package.json,
+
+npm install <package_name>
+npm install -g <package_name>
+creates node_module folder. (global install, local install)
+
+
+SERVER NODE-------------------------------------------------
+
+ // Import the HTTP module
+const http = require('http');
+
+// Define the request listener function
+const requestListener = function (req, res) {
+    res.writeHead(200); // Set the status code to 200 (OK)
+    res.end('Hello, World!'); // Send the response "Hello, World!"
+};
+
+// Define the port number
+const port = 8080;
+
+// Create an HTTP server using the request listener function
+const server = http.createServer(requestListener);
+
+// Start the server and listen on the specified port
+server.listen(port);
+console.log('Server listening on port: ' + port);
+
+to check content of file
+cat today.js
+
+----------------------------------
+ // Export a function named 'getDate' from the module
+module.exports.getDate = function getDate() {
+    // Get the current date and time in the timezone "Australia/Brisbane"
+    let aestTime = new Date().toLocaleString("en-US", {timeZone: "Australia/Brisbane"});
+    return aestTime; // Return the formatted date and time
+};
+--------------------------------------
+ // Import the HTTP module
+const http = require('http');
+
+// Import the 'today' module
+const today = require('./today');
+
+// Define the request listener function
+const requestListener = function (req, res) {
+    res.writeHead(200); // Set the status code to 200 (OK)
+    // Send the response with the current date from the 'today' module
+    res.end(`Hello, World! The date today is ${today.getDate()}`);
+};
+
+// Define the port number
+const port = 8080;
+
+// Create an HTTP server using the request listener function
+const server = http.createServer(requestListener);
+
+// Start the server and listen on the specified port
+server.listen(port);
+console.log('Server listening on port: ' + port);
+
+
+-------------------------------------------
+JSON is standard format for API exchange.
+parse and stringify methods.
